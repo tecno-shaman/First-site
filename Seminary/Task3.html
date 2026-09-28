@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,51 +10,81 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-            background-color: #f4f6fa;
-            color: #222;
+            font-family: 'Trebuchet MS', 'Segoe UI', Roboto, Arial, sans-serif;
             margin: 0;
-            padding: 30px 20px;
+            padding: 40px 20px 60px;
+            min-height: 100vh;
+            color: #22303f;
+            background-color: #eef2f8;
+            background-attachment: fixed;
         }
 
         h1 {
+            max-width: 1200px;
+            margin: 0 auto 32px;
+            padding: 26px 30px;
             text-align: center;
-            color: #1d3557;
-            margin-bottom: 30px;
-            font-size: 32px;
+            font-size: 34px;
+            letter-spacing: 1px;
+            color: #666;
+            border-radius: 18px;
+            box-shadow: 0 12px 26px rgba(29, 53, 87, 0.28);
         }
 
         form {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 28px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .column {
+            padding: 28px 30px 10px;
             background-color: #fff;
-            padding: 25px;
-            border: 1px solid #d0d7e2;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #dfe6f0;
+            border-top: 6px solid #457b9d;
+            border-radius: 18px;
+            box-shadow: 0 10px 24px rgba(29, 53, 87, 0.08);
         }
 
-            .column h2 {
-                margin-top: 0;
-                margin-bottom: 20px;
-                font-size: 20px;
-                color: #1d3557;
-                border-bottom: 2px solid #e63946;
-                padding-bottom: 8px;
-            }
+        .column:nth-of-type(2) {
+            border-top-color: #e63946;
+        }
+
+        .column h2 {
+            position: relative;
+            margin: 0 0 22px;
+            padding: 0 0 12px 16px;
+            font-size: 19px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #1d3557;
+            border-bottom: 1px dashed #cdd7e5;
+        }
+
+        .column h2::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            bottom: 14px;
+            width: 6px;
+            border-radius: 3px;
+            background-color: #457b9d;
+        }
+
+        .column:nth-of-type(2) h2::before {
+            background-color: #e63946;
+        }
 
         label {
             display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-            font-size: 15px;
-            color: #333;
+            margin-bottom: 7px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            color: #3d5a80;
         }
 
         input[type="text"],
@@ -64,55 +93,73 @@
         input[type="date"],
         select {
             width: 100%;
-            padding: 10px 12px;
-            margin-bottom: 18px;
-            border: 1px solid #c4cbd6;
-            border-radius: 8px;
-            font-size: 15px;
+            padding: 11px 14px;
+            margin-bottom: 20px;
             font-family: inherit;
-            background-color: #fafbfc;
-            transition: border-color 0.2s ease, background-color 0.2s ease;
+            font-size: 15px;
+            color: #22303f;
+            background-color: #f2f5fa;
+            border: 2px solid #e2e9f2;
+            border-radius: 10px;
+            transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
         }
 
-            input:focus,
-            select:focus {
-                outline: none;
-                border-color: #457b9d;
-                background-color: #fff;
-            }
+        input:focus,
+        select:focus {
+            outline: none;
+            background-color: #fff;
+            border-color: #457b9d;
+            box-shadow: 0 0 0 4px rgba(69, 123, 157, 0.15);
+        }
 
         .radio-group,
         .checkbox-group {
-            margin-bottom: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
-            .radio-group label,
-            .checkbox-group label {
-                display: inline-flex;
-                align-items: center;
-                margin-right: 15px;
-                margin-bottom: 8px;
-                font-weight: 400;
-                cursor: pointer;
-            }
+        .radio-group label,
+        .checkbox-group label {
+            display: inline-flex;
+            align-items: center;
+            margin: 0;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0;
+            color: #3d5a80;
+            background-color: #f2f5fa;
+            border: 2px solid #e2e9f2;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
 
-            .radio-group input,
-            .checkbox-group input {
-                margin-right: 6px;
-                accent-color: #e63946;
-                cursor: pointer;
-            }
+        .radio-group label:hover,
+        .checkbox-group label:hover {
+            background-color: #e8eff8;
+            border-color: #a8c0d8;
+        }
+
+        .radio-group input,
+        .checkbox-group input {
+            margin: 0 7px 0 0;
+            accent-color: #e63946;
+            cursor: pointer;
+        }
 
         input.user-valid,
         input:user-valid {
             border-color: #2a9d8f;
-            background-color: #f0faf7;
+            background-color: #eefaf7;
         }
 
         input.user-invalid,
         input:user-invalid {
             border-color: #e63946;
-            background-color: #fdf0f1;
+            background-color: #fdeef0;
         }
 
         input:invalid:not(:placeholder-shown) {
@@ -122,26 +169,57 @@
         button[type="submit"] {
             grid-column: 1 / -1;
             justify-self: center;
-            margin-top: 10px;
-            padding: 12px 50px;
+            margin-top: 8px;
+            padding: 15px 70px;
+            font-family: inherit;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             color: #fff;
-            background-color: #1d3557;
+            background: linear-gradient(120deg, #1d3557, #457b9d);
             border: none;
-            border-radius: 8px;
+            border-radius: 999px;
             cursor: pointer;
-            transition: background-color 0.25s ease, transform 0.25s ease;
+            box-shadow: 0 10px 22px rgba(29, 53, 87, 0.28);
+            transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-            button[type="submit"]:hover {
-                background-color: #457b9d;
-                transform: translateY(-2px);
+        button[type="submit"]:hover {
+            background: linear-gradient(120deg, #e63946, #b02a37);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 28px rgba(230, 57, 70, 0.35);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+            box-shadow: 0 6px 14px rgba(29, 53, 87, 0.25);
+        }
+
+        @media (max-width: 820px) {
+            body {
+                padding: 24px 14px 40px;
             }
 
-            button[type="submit"]:active {
-                transform: translateY(0);
+            h1 {
+                padding: 20px;
+                font-size: 24px;
             }
+
+            form {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .column {
+                padding: 22px 20px 6px;
+            }
+
+            button[type="submit"] {
+                width: 100%;
+                padding: 15px 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -237,15 +315,15 @@
                 <option value="web">Веб-технологии</option>
                 <option value="math">Математический анализ</option>
                 <option value="programming">Программирование</option>
-                <option value="databases">Базы данных</option>
-                <option value="physics">Физика</option>
+                <option value="databases">Методы оптимизации</option>
+                <option value="physics">Баскетбол</option>
             </select>
 
             <label for="teacher">Преподаватель:</label>
             <input type="text"
                    id="teacher"
                    name="teacher"
-                   placeholder="Иванов Иван Иванович"
+                   placeholder="Иванова Татьяна Петровна"
                    maxlength="256"
                    pattern="[А-ЯЁ][а-яё]+\s[А-ЯЁ][а-яё]+\s[А-ЯЁ][а-яё]+"
                    title="Введите три слова на кириллице: Фамилия Имя Отчество" />
@@ -273,5 +351,5 @@
 
     </form>
 
-    </body>
+</body>
 </html>
